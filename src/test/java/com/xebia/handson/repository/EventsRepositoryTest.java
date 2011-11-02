@@ -131,7 +131,6 @@ public class EventsRepositoryTest {
 	}
 
 	// TODO: Part 2 - EX5 : Should search with multiple criteres
-
 	@Test
 	@Ignore
 	public void should_search_with_multiple_criteres() {
@@ -144,7 +143,7 @@ public class EventsRepositoryTest {
 
 		assertThat(events).isNotNull();
 		assertThat(events).isNotEmpty();
-		assertThat(events.get(3).getVenue().getTown()).isEqualTo("Paris");
+		assertThat(events.get(0).getVenue().getTown()).isEqualTo("Paris");
 	}
 
 	// TODO: Part 2 - EX6 : Create index on name
