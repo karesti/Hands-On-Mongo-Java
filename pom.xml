@@ -44,18 +44,6 @@
 		        <artifactId>morphia</artifactId>
 		        <version>0.99</version>
 		</dependency>
-		<dependency>
-		        <groupId>cglib</groupId>
-		        <artifactId>cglib-nodep</artifactId>
-		        <version>[2.1_3,)</version>
-		        <optional>true</optional>
-		</dependency>
-		<dependency>
-		        <groupId>com.thoughtworks.proxytoys</groupId>
-		        <artifactId>proxytoys</artifactId>
-		        <version>1.0</version>
-		        <optional>true</optional>
-		</dependency>
 
 		<!-- tests -->
 		<dependency>
