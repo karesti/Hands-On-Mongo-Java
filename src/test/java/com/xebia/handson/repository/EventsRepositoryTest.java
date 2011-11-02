@@ -120,14 +120,14 @@ public class EventsRepositoryTest {
 		EventsRepository repository = injector
 				.getInstance(EventsRepository.class);
 
-		EventSession eventSession = new EventSession("2011-11-03", "23:00");
+		EventSession eventSession = new EventSession("2011-11-03", "");
 
 		repository.updateNameWithSessionDate(
 				eventSession.getShowDateTimeStart(), "multipleUpdate");
 
 		long countWithName = repository.countWithName("multipleUpdate");
 
-		assertThat(countWithName).isEqualTo(103);
+		assertThat(countWithName).isEqualTo(99);
 	}
 
 	// TODO: Part 2 - EX5 : Should search with multiple criteres
