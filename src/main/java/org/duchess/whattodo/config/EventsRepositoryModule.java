@@ -1,11 +1,12 @@
-package com.xebia.whattodo.config;
+package org.duchess.whattodo.config;
+
+import org.duchess.whattodo.mongo.MapperMorphia;
+import org.duchess.whattodo.mongo.MongoDB;
+import org.duchess.whattodo.mongo.MongoDBConfiguration;
+import org.duchess.whattodo.repository.EventsRepository;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.name.Names;
-import com.xebia.whattodo.mongo.MapperMorphia;
-import com.xebia.whattodo.mongo.MongoDB;
-import com.xebia.whattodo.mongo.MongoDBConfiguration;
-import com.xebia.whattodo.repository.EventsRepository;
 
 public class EventsRepositoryModule extends AbstractModule {
 

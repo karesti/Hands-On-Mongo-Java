@@ -1,10 +1,16 @@
-package com.xebia.handson.repository;
+package org.duchess.handson.repository;
 
 import static org.fest.assertions.Assertions.assertThat;
 
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.duchess.whattodo.config.EventsRepositoryModule;
+import org.duchess.whattodo.model.Event;
+import org.duchess.whattodo.model.EventSession;
+import org.duchess.whattodo.model.Venue;
+import org.duchess.whattodo.mongo.MongoDB;
+import org.duchess.whattodo.repository.EventsRepository;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -12,12 +18,6 @@ import org.junit.Test;
 import com.google.common.collect.Lists;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.xebia.whattodo.config.EventsRepositoryModule;
-import com.xebia.whattodo.model.Event;
-import com.xebia.whattodo.model.EventSession;
-import com.xebia.whattodo.model.Venue;
-import com.xebia.whattodo.mongo.MongoDB;
-import com.xebia.whattodo.repository.EventsRepository;
 
 public class EventsRepositoryTest {
 
@@ -83,8 +83,25 @@ public class EventsRepositoryTest {
 				.isEqualTo(countEventsBeforeInsert);
 
 	}
+	
+	// TODO: Part 2 - EX3 : Search
+	@Test
+	@Ignore
+	public void should_search_with_multiple_criteres() {
+		EventsRepository repository = injector
+				.getInstance(EventsRepository.class);
 
-	// TODO: Part 2 - EX3 : Update One, Update More
+		List<Event> events = repository
+				.findContainsWordOnNameAndOrderedByTownUpdatedLimited(
+						"concert", 10);
+
+		assertThat(events).isNotNull();
+		assertThat(events).isNotEmpty();
+		assertThat(events.get(0).getVenue().getTown()).isEqualTo("Paris");
+	}
+
+
+	// TODO: Part 2 - EX4 : Update One, Update More
 	@Test
 	@Ignore
 	public void should_be_able_to_add_another_session() {
@@ -130,23 +147,7 @@ public class EventsRepositoryTest {
 		assertThat(countWithName).isEqualTo(99);
 	}
 
-	// TODO: Part 2 - EX5 : Should search with multiple criteres
-	@Test
-	@Ignore
-	public void should_search_with_multiple_criteres() {
-		EventsRepository repository = injector
-				.getInstance(EventsRepository.class);
-
-		List<Event> events = repository
-				.findContainsWordOnNameAndOrderedByTownUpdatedLimited(
-						"concert", 10);
-
-		assertThat(events).isNotNull();
-		assertThat(events).isNotEmpty();
-		assertThat(events.get(0).getVenue().getTown()).isEqualTo("Paris");
-	}
-
-	// TODO: Part 2 - EX6 : Create index on name
+	// TODO: Part 2 - EX5 : Create index on name
 	@Test
 	@Ignore
 	public void should_create_index_on_name() {

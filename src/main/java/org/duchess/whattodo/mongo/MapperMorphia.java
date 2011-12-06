@@ -1,4 +1,4 @@
-package com.xebia.whattodo.mongo;
+package org.duchess.whattodo.mongo;
 
 import com.google.code.morphia.Morphia;
 import com.google.inject.Inject;
@@ -15,15 +15,14 @@ public class MapperMorphia {
 		this.morphia.mapPackage("com.xebia.whattodo.model");
 	}
 
-	// TODO: EX2 Create Mapping
 	public <T extends Object> T fromDBObject(Class<T> entityClass,
 			DBObject dbObject) {
-		return null;
+		return this.morphia.fromDBObject(entityClass, dbObject);
 	}
 
-	// TODO: EX2 Create Mapping
 	public <T extends Object> DBObject toDBObject(T modelObject) {
-		return null;
+		DBObject dbObject = this.morphia.toDBObject(modelObject);
+		dbObject.removeField("className");
+		return dbObject;
 	}
-
 }

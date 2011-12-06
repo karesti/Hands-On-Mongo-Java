@@ -1,4 +1,4 @@
-package com.xebia.whattodo.model;
+package org.duchess.whattodo.model;
 
 import static com.google.common.base.Objects.equal;
 

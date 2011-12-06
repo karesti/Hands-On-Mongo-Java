@@ -1,4 +1,4 @@
-package com.xebia.whattodo.mongo;
+package org.duchess.whattodo.mongo;
 
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
