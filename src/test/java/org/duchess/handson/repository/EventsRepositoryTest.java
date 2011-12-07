@@ -40,6 +40,7 @@ public class EventsRepositoryTest {
 		assertThat(mongo.getDatabase().getName()).as(
 				"DB name is configured on Events Repository Module").isEqualTo(
 				"WhatToDo");
+		assertThat(mongo.getDatabase().getCollectionNames()).as("has collections").isNotEmpty();
 	}
 
 	// TODO: Part 2 - EX2 : Create, Find and Remove By ID

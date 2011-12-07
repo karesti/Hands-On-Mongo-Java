@@ -12,7 +12,7 @@ public class MapperMorphia {
 	@Inject
 	public MapperMorphia() {
 		this.morphia = new Morphia();
-		this.morphia.mapPackage("com.xebia.whattodo.model");
+		this.morphia.mapPackage("org.duchess.whattodo.model");
 	}
 
 	public <T extends Object> T fromDBObject(Class<T> entityClass,
